@@ -21,7 +21,7 @@ public class ChikinController : MonoBehaviour
         //xの移動
         _moves.x = Input.GetAxis("Horizontal") * moveSpeed;
         //zの移動
-        _moves.z = Input.GetAxis("Vertical") * moveSpeed;
+        _moves.z = moveSpeed;
 
         //プレイヤーの向き
         _transform.LookAt(_transform.position + new Vector3(_moves.x, 0, _moves.z));
