@@ -13,7 +13,7 @@ public class Camera_scr : MonoBehaviour
         //取得した位置をVector3で代入
         Vector3 camPos = camTrans.position;
         //位置の変更
-        camPos.z = camPos.z + camSpeed * 0.001f;
+        camPos.z = camPos.z + camSpeed * 0.01f;
         //変更した位置を代入
         camTrans.position = camPos;
     }
