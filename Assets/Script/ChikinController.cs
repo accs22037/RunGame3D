@@ -30,6 +30,5 @@ public class ChikinController : MonoBehaviour
         animator.SetFloat("MoveSpeed", new Vector3(_moves.x, 0, _moves.z).magnitude);
 
         _moves.y += Physics.gravity.y * 0.001f;
-        Debug.Log(_transform.position.z);
     }
 }
