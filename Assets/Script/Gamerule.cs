@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class Gamerule : MonoBehaviour
 {
-    public bool alive = true; //プレイヤーが生きてるか確認
+    public static bool alive = true; //プレイヤーが生きてるか確認
     public static int point = 0; //ポイント管理
-    
-    void Start()
-    {
-        point = 0;
-    }
-
-    void Update()
-    {
-        
+    private void OnTriggerEnter(Collider other) //Playerとの衝突を検知(On Trigger)
+    {   
+        if(other.CompareTag("damage_Object"))
+        {
+            alive = false;
+            Destroy(this.gameObject);
+        }
     }
 }
