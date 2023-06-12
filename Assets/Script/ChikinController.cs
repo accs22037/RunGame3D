@@ -3,8 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))] //キャラクターコントローラーをアタッチ
 public class ChikinController : MonoBehaviour
 {
-    [SerializeField] private Animator animator; //アニメーション(インスペクタ)
-    [SerializeField] private float moveSpeed = 1.0f; //移動速度(インスペクタ)
+    [SerializeField] Animator animator; //アニメーション(インスペクタ)
+    public static float moveSpeed = 5.0f; //移動速度(インスペクタ)
     private CharacterController _characterController; 
     private Transform _transform; 
     public Vector3 _moves;

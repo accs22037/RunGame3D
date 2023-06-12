@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EGG
   - damage_Object
+  - goal_Object
   layers:
   - Default
   - TransparentFX
