@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//デバッグ用スクリプト
 public class test_debug : MonoBehaviour
 {
     [SerializeField] Text debug_text;

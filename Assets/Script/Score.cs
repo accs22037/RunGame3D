@@ -3,35 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//スコアを管理するスクリプト
 public class Score : MonoBehaviour
 {
-    [SerializeField] Text scoreText;
-    int eggPoint = 100;
-    int missPoint = -10;
-    int totalScore;
-    bool countEnd = false;
+    [SerializeField] Text scoreText;    //スコアを表示するテキスト
+    int eggPoint;     //卵のポイント
+    int missPoint;    //ミスした際のポイント
+    int totalScore;   //トータルスコア
+    bool countEnd = false;  //スコアのカウント有無を管理(バグ防止用)   
 
-    // Update is called once per frame
     void Update()
     {
+        //ゴール判定を確認
         if(Goal.goal == true)
         {
-            if(countEnd == false)
+            //スコアを換算する
+            if(countEnd == false)   //スコアカウントが有効なとき
             {
-                eggPoint = 100 * Gamerule.point;
-                missPoint = -10 * Gamerule.missCount;
-                totalScore = eggPoint + missPoint;
-                countEnd = true;
+                eggPoint = 100 * Gamerule.point;        //卵のスコアを追加(100ポイント)
+                missPoint = -10 * Gamerule.missCount;   //ミスしたスコアを減少(-10ポイント)
+                totalScore = eggPoint + missPoint;      //トータルスコアを計算
+                countEnd = true;    //スコアカウントを無効化
             }
+
+            //スコアが0以下になった場合、0にして表示する
             if(totalScore <= 0)
             {
                 scoreText.text = "Score:0";
             }
+
+            //スコアを表示する
             else
             {
                 scoreText.text = "Score:" + totalScore;
             }
         }
+
+        //ゴールしていない場合何も表示しない
         else
         {
             scoreText.text = "";

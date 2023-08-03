@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//ゴールしたときの処理
 public class Goal : MonoBehaviour
 {
-    //ゴールしているかどうか確認する変数
-    public static bool goal = false;
-    [SerializeField] Animator animator;
+    public static bool goal = false; //ゴールしているかどうか確認する変数
+    [SerializeField] Animator animator; //アニメーションをアタッチする
     private void OnTriggerEnter(Collider other) //Playerとの衝突を検知(On Trigger)
     {   
         //ゴールに触れた時の処理
@@ -22,11 +21,11 @@ public class Goal : MonoBehaviour
         if(goal == true)
         {
             Gamerule.ready = true; //待機状態にする
-            animator.SetBool("Goal",true);
+            animator.SetBool("Goal",true); //待機状態のアニメーションに遷移
         }
         else
         {
-            animator.SetBool("Goal",false);
+            animator.SetBool("Goal",false); //待機状態のアニメーションを無効化
         }
     }
 }

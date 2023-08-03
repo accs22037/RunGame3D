@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+//リザルト画面に「Tap to Title」を表示するスクリプト
 public class Tap_to_Title : MonoBehaviour
 {
-    public GameObject canvas;
-    public GameObject text_Fade;
-    Text text;
-    Canvas cvs;
-    private float alpha;
+    public GameObject canvas;       //キャンバス用のゲームオブジェクト変数
+    public GameObject text_Fade;    //ゲームオブジェクト
+    Text text;  //テキスト
+    Canvas cvs; //キャンバス
+    private float alpha; //透明度
 
     void Start()
     {

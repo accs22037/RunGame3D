@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//ゲームルールを管理するスクリプト
 
 public class Gamerule : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Gamerule : MonoBehaviour
     public static float saveSpeed;      //速度を保存する変数
     public static int point = 0;        //ポイント管理の変数
     public static int missCount = 0;    //ミスカウント
-    float damtime;      //ミス後のディレイ
+    float misstime;      //ミス後の硬直
     Vector3 startPos;   //スタート位置の座標
     private void OnTriggerEnter(Collider other) //Playerとの衝突を検知(On Trigger)
     {   
@@ -33,8 +34,8 @@ public class Gamerule : MonoBehaviour
         //生存状態がfalseになると待機状態になる
         if(alive == false)
         {
-            ready = true;
-            damtime += Time.deltaTime;
+            ready = true;   //待機状態を有効化
+            misstime += Time.deltaTime;
             point = 0;                      //ミスするとポイントを0にする
             Camera_scr.tracking = false;    //カメラトラッキングをfalseにする
             //-Debug.Log("alive = false");
@@ -47,18 +48,17 @@ public class Gamerule : MonoBehaviour
             //-Debug.Log("ready = true");
         }
         //ミス後にスタート地点へ戻る処理
-        if(damtime >= 1)
+        if(misstime >= 1)
         {
-            //現在の座標を取得
-            Transform myTransform = this.transform;
-            //スタート地点へ戻す
-            myTransform.position = startPos;
+            Transform myTransform = this.transform; //現在の座標を取得
+            myTransform.position = startPos;        //スタート地点へ戻す
+
             alive = true;   //生存状態をtrueにする
-            damtime = 0;    //ディレイをリセットする
+            misstime = 0;    //硬直をリセットする
             ready = false;  //待機状態をfalseにする
             ChikinController.moveSpeed = saveSpeed; //移動速度を元に戻す
             missCount += 1; //ミスカウントを増やす
-            //-Debug.Log("damtime >= 1");
+            //-Debug.Log("misstime >= 1");
         }
     }
 }
