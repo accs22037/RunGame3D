@@ -22,6 +22,7 @@ public class Camera_scr : MonoBehaviour
             camPos.z = plyPos.z - 7;
             //変更した位置を代入
             camTrans.position = camPos;
+            Debug.Log("traking = true");
         }
         //トラッキングが無効な時(プレイヤーがやられた後)の処理
         if(tracking == false)
@@ -31,11 +32,13 @@ public class Camera_scr : MonoBehaviour
             {
                 camPos.z -= 2f;
                 camTrans.position = camPos;
+                Debug.Log("カメラ移動");
             }
             //移動が終了したらトラッキングを有効にする
             else
             {
                 tracking = true;
+                Debug.Log("カメラ移動終了");
             }
         }
     }    
