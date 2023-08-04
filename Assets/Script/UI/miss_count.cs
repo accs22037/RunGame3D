@@ -5,11 +5,11 @@ using UnityEngine.UI;
 //ミスした回数を表示
 public class miss_count : MonoBehaviour
 {
-    [SerializeField] Text missText; //テキスト
+    [SerializeField] Text missText; 
 
     void Update()
     {
-        missText.text = "miss x " + Gamerule.missCount; //ミスした回数を表示
+        missText.text = "miss x " + Gamerule.missCount; 
     }
 }
 
