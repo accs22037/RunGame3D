@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//ゴールしたときの処理
+//ゴールしたときの処理をするスクリプト
+//ゴールした際には待機状態のアニメーションにする
 public class Goal : MonoBehaviour
 {
     public static bool goal = false; //ゴールしているかどうか確認する変数
@@ -17,15 +18,15 @@ public class Goal : MonoBehaviour
     }
     void Update()
     {
-        //ゴールした時の処理
+        //ゴールした時に待機状態のアニメーションにする
         if(goal == true)
         {
             Gamerule.ready = true; //待機状態にする
-            animator.SetBool("Goal",true); //待機状態のアニメーションに遷移
+            animator.SetBool("Goal",true);
         }
         else
         {
-            animator.SetBool("Goal",false); //待機状態のアニメーションを無効化
+            animator.SetBool("Goal",false);
         }
     }
 }

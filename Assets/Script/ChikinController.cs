@@ -11,11 +11,12 @@ public class ChikinController : MonoBehaviour
 
     private void Start()
     {
+        _moves.y = -10;
         //キャッシュ
         _characterController = GetComponent<CharacterController>();
         _transform = transform;
 
-        //フレームレートを固定化
+        //フレームレートを固定
         Application.targetFrameRate = 60;
     }
 

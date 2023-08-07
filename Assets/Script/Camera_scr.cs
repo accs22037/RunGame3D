@@ -18,7 +18,7 @@ public class Camera_scr : MonoBehaviour
         //トラッキングが有効な時(プレイヤー生存状態)の処理
         if(tracking == true)
         {    
-            camPos.z = plyPos.z - 7;    //位置の変更
+            camPos.z = plyPos.z - 7;    //プレイヤーから一定距離を保つ
             camTrans.position = camPos; //変更した位置を代入
             //-Debug.Log("traking = true");
         }
@@ -28,7 +28,7 @@ public class Camera_scr : MonoBehaviour
             //プレイヤーの位置までカメラを移動させる
             if(camPos.z >= plyPos.z - 6f)
             {
-                camPos.z -= 2f; //カメラプレイヤーまで移動する
+                camPos.z -= 2f; //カメラを後ろに移動する
                 camTrans.position = camPos; //カメラの現在地を代入
                 //-Debug.Log("カメラ移動");
             }
